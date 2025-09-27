@@ -9,17 +9,19 @@
 
 namespace Core {
     class GameWindowManager {
-        int game_window_height = 720;
-        int game_window_width = 1280;
+        unsigned game_window_height = 720u;
+        unsigned game_window_width = 1280u;
         std::string game_title = "[SFML] Ping Pong";
         sf::RenderWindow* game_window = nullptr;
-
-        void create_game_window() const;
     public:
         void initialize();
         sf::RenderWindow* get_game_window() const ;
         bool is_game_running() const;
+        void take_input();
         void render();
+
+        ~GameWindowManager();
+
     };
 }
 
