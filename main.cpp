@@ -1,17 +1,16 @@
 #include <iostream>
 
+#include "include/Core/GameLoop.h"
 #include "include/Core/GameWindowManager.h"
 int main()
 {
-    Core::GameWindowManager game_window_manager;
-
-    game_window_manager.initialize();
-    while (game_window_manager.is_game_running()) {
-        N_Event::EventManager::pollEvents(game_window_manager.get_game_window());
-        game_window_manager.render();
+    N_Core::GameLoop* loop = new N_Core::GameLoop();
+    loop->initialize();
+    while (loop->isGameRunning()) {
+        loop->pollEvents();
+        loop->update();
+        loop->render();
     }
-
-
-
+    delete loop;
     return 0;
 }

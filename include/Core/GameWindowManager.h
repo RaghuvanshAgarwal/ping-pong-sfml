@@ -9,7 +9,7 @@
 
 #include "../Event/EventManager.h"
 
-namespace Core {
+namespace N_Core {
     class GameWindowManager {
         unsigned game_window_height = 720u;
         unsigned game_window_width = 1280u;
@@ -17,10 +17,10 @@ namespace Core {
         sf::RenderWindow* game_window = nullptr;
     public:
         void initialize();
-        sf::RenderWindow* get_game_window() const ;
-        bool is_game_running() const;
-        void render();
-
+        sf::RenderWindow* getGameWindow() const ;
+        bool isGameRunning() const;
+        void clearGameWindow();
+        void renderGameWindow();
         ~GameWindowManager();
 
     };

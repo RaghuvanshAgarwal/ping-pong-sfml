@@ -4,22 +4,27 @@
 
 #include "../../include/Core/GameWindowManager.h"
 
-namespace Core {
+namespace N_Core {
     void GameWindowManager::initialize() {
         game_window = new sf::RenderWindow(sf::VideoMode({game_window_width, game_window_height}), game_title);
         game_window->setFramerateLimit(60);
     }
 
-    bool GameWindowManager::is_game_running() const {
+    bool GameWindowManager::isGameRunning() const {
         return game_window->isOpen();
     }
 
-    sf::RenderWindow *GameWindowManager::get_game_window() const {
+
+
+    sf::RenderWindow *GameWindowManager::getGameWindow() const {
         return game_window;
     }
 
-    void GameWindowManager::render() {
-        game_window->clear(sf::Color(200, 50, 50, 255));
+    void GameWindowManager::clearGameWindow() {
+        game_window->clear();
+    }
+
+    void GameWindowManager::renderGameWindow() {
         game_window->display();
     }
 

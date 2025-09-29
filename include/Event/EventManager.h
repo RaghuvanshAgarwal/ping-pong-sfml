@@ -17,9 +17,9 @@ namespace sf {
 namespace N_Event {
     class EventManager {
     public:
-        static void pollEvents(sf::RenderWindow* p_window);
-        static bool isKeyPressed(sf::Keyboard::Key p_key);
-        static bool isLeftMouseButtonPressed();
+        void pollEvents(sf::RenderWindow* p_window);
+        bool isKeyPressed(sf::Keyboard::Key p_key);
+        bool isLeftMouseButtonPressed();
     };
 }
 
