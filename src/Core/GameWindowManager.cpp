@@ -2,12 +2,11 @@
 // Created by Raghuvansh Agarwal on 27/09/25.
 //
 
-#include "../../include/core/GameWindowManager.h"
+#include "../../include/Core/GameWindowManager.h"
 
 namespace Core {
-
     void GameWindowManager::initialize() {
-        game_window = new sf::RenderWindow(sf::VideoMode({game_window_width,game_window_height}),game_title);
+        game_window = new sf::RenderWindow(sf::VideoMode({game_window_width, game_window_height}), game_title);
         game_window->setFramerateLimit(60);
     }
 
@@ -15,18 +14,8 @@ namespace Core {
         return game_window->isOpen();
     }
 
-    sf::RenderWindow* GameWindowManager::get_game_window() const {
+    sf::RenderWindow *GameWindowManager::get_game_window() const {
         return game_window;
-    }
-
-    void GameWindowManager::take_input() {
-        while (const std::optional event = game_window->pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-            {
-                game_window->close();
-            }
-        }
     }
 
     void GameWindowManager::render() {

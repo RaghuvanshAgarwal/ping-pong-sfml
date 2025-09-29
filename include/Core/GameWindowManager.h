@@ -7,6 +7,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "../Event/EventManager.h"
+
 namespace Core {
     class GameWindowManager {
         unsigned game_window_height = 720u;
@@ -17,7 +19,6 @@ namespace Core {
         void initialize();
         sf::RenderWindow* get_game_window() const ;
         bool is_game_running() const;
-        void take_input();
         void render();
 
         ~GameWindowManager();

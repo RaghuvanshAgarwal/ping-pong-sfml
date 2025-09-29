@@ -14,6 +14,8 @@ FetchContent_MakeAvailable(SFML)
 
 add_executable(main main.cpp
         include/core/GameWindowManager.h
-        src/core/GameWindowManager.cpp)
+        src/core/GameWindowManager.cpp
+        include/Event/EventManager.h
+        src/Event/EventManager.cpp)
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)

@@ -1,13 +1,13 @@
 #include <iostream>
 
-#include "include/core/GameWindowManager.h"
+#include "include/Core/GameWindowManager.h"
 int main()
 {
     Core::GameWindowManager game_window_manager;
 
     game_window_manager.initialize();
     while (game_window_manager.is_game_running()) {
-        game_window_manager.take_input();
+        N_Event::EventManager::pollEvents(game_window_manager.get_game_window());
         game_window_manager.render();
     }
 
