@@ -3,6 +3,9 @@ project(CMakeSFMLProject LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+
+
+
 include(FetchContent)
 FetchContent_Declare(SFML
     GIT_REPOSITORY https://github.com/SFML/SFML.git
@@ -18,6 +21,20 @@ add_executable(main main.cpp
         include/Event/EventManager.h
         src/Event/EventManager.cpp
         include/Core/GameLoop.h
-        src/Core/GameLoop.cpp)
+        src/Core/GameLoop.cpp
+        src/Gameplay/Ball.cpp
+        include/Gameplay/Ball.h
+        src/Gameplay/Paddle.cpp
+        include/Gameplay/Paddle.h
+        src/Gameplay/GameplayManager.cpp
+        include/Gameplay/GameplayManager.h
+)
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)
+set_target_properties(main PROPERTIES
+        VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+)
+
+target_compile_definitions(main PRIVATE
+        PROJECT_ROOT="${CMAKE_SOURCE_DIR}"
+)

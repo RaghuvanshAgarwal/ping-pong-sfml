@@ -5,9 +5,16 @@
 #include "../../include/Core/GameLoop.h"
 
 namespace N_Core {
+    GameLoop::~GameLoop() {
+        delete game_manager_;
+        delete event_manager_;
+        delete window_manager_;
+    }
+
     void GameLoop::initialize() {
         window_manager_ = new GameWindowManager();
         event_manager_ = new N_Event::EventManager();
+        game_manager_ = new N_Gameplay::GameplayManager();
 
         window_manager_->initialize();
     }
@@ -30,6 +37,7 @@ namespace N_Core {
 
     void GameLoop::render() {
         window_manager_->clearGameWindow();
+        game_manager_->render(window_manager_->getGameWindow());
         window_manager_->renderGameWindow();
     }
 }
