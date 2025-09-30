@@ -17,6 +17,10 @@ namespace N_Gameplay {
         sprite_->setPosition({position_x_, position_y_});
     }
 
+    void Ball::move() {
+        sprite_->move(velocity_);
+    }
+
     Ball::Ball() {
         loadTexture();
         initializeVariables();
@@ -27,6 +31,7 @@ namespace N_Gameplay {
     }
 
     void Ball::update() {
+        move();
     }
 
     void Ball::render(sf::RenderWindow *p_window) {

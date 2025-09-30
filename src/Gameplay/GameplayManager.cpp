@@ -13,7 +13,8 @@ namespace N_Gameplay {
         ball_ = new Ball();
     }
 
-    GameplayManager::GameplayManager() {
+    GameplayManager::GameplayManager(N_Event::EventManager* p_event_manager) {
+        eventManager_ = p_event_manager;
         initialize();
     }
 
@@ -24,6 +25,9 @@ namespace N_Gameplay {
     }
 
     void GameplayManager::update() {
+        player_1_->update(eventManager_->isKeyPressed(sf::Keyboard::Key::W), eventManager_->isKeyPressed(sf::Keyboard::Key::S));
+        player_2_->update(eventManager_->isKeyPressed(sf::Keyboard::Key::Up), eventManager_->isKeyPressed(sf::Keyboard::Key::Down));
+        ball_->update();
     }
 
     void GameplayManager::render(sf::RenderWindow *p_window) {

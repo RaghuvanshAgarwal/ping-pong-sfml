@@ -8,14 +8,18 @@
 
 namespace N_Gameplay {
     class Paddle {
-        sf::RectangleShape paddle_sprite_;
+        sf::Sprite* sprite_;
+        sf::Texture texture_;
 
         const float paddle_width_ = 20.0f;
         const float paddle_height_ = 140.0f;
+        const float paddle_speed_ = .5f;
+
+        void movePaddle(bool up_key_pressed, bool down_key_pressed);
     public:
         Paddle(float p_position_x,float p_position_y);
         ~Paddle();
-        void update();
+        void update(bool up_key_pressed, bool down_key_pressed);
         void render(sf::RenderWindow *p_window);
     };
 } // N_Gameplay

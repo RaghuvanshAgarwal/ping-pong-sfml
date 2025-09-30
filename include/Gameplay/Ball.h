@@ -20,8 +20,12 @@ namespace N_Gameplay {
         const float position_x_ = 615.0f;
         const float position_y_ = 335.0f;
 
+        float speed_ = .5f;
+        sf::Vector2f velocity_ = sf::Vector2f(speed_,speed_);
+
         void loadTexture();
         void initializeVariables();
+        void move();
 
         public:
         Ball();

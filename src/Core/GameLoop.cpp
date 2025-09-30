@@ -14,7 +14,7 @@ namespace N_Core {
     void GameLoop::initialize() {
         window_manager_ = new GameWindowManager();
         event_manager_ = new N_Event::EventManager();
-        game_manager_ = new N_Gameplay::GameplayManager();
+        game_manager_ = new N_Gameplay::GameplayManager(event_manager_);
 
         window_manager_->initialize();
     }
@@ -33,6 +33,7 @@ namespace N_Core {
     }
 
     void GameLoop::update() {
+        game_manager_->update();
     }
 
     void GameLoop::render() {
