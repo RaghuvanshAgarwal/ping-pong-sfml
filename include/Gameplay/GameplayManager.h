@@ -7,6 +7,8 @@
 #include "../Event/EventManager.h"
 #include "SFML/Graphics.hpp"
 
+class Boundary;
+
 namespace N_Gameplay {
     class Paddle;
 }
@@ -26,6 +28,7 @@ namespace N_Gameplay {
         Ball* ball_{};
         Paddle* player_1_{};
         Paddle* player_2_{};
+        Boundary* boundary_{};
         N_Event::EventManager* eventManager_{};
 
         void initialize();

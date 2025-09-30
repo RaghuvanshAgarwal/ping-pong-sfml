@@ -17,7 +17,7 @@ namespace N_Gameplay {
         const float scale_x = 0.06f;
         const float scale_y = 0.06f;
 
-        const float position_x_ = 615.0f;
+        const float position_x_ = 610.0f;
         const float position_y_ = 335.0f;
 
         float speed_ = .5f;

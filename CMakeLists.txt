@@ -28,6 +28,8 @@ add_executable(main main.cpp
         include/Gameplay/Paddle.h
         src/Gameplay/GameplayManager.cpp
         include/Gameplay/GameplayManager.h
+        src/Gameplay/Boundary.cpp
+        include/Gameplay/Boundary.h
 )
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)

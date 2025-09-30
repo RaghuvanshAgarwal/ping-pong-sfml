@@ -18,7 +18,7 @@ namespace N_Gameplay {
     }
 
     void Ball::move() {
-        sprite_->move(velocity_);
+        //sprite_->move(velocity_);
     }
 
     Ball::Ball() {

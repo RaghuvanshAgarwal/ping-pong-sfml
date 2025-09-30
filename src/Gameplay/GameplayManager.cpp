@@ -5,9 +5,11 @@
 #include "../../include/Gameplay/GameplayManager.h"
 #include "../../include/Gameplay/Ball.h"
 #include "../../include/Gameplay/Paddle.h"
+#include "../../include/Gameplay/Boundary.h"
 
 namespace N_Gameplay {
     void GameplayManager::initialize() {
+        boundary_ = new Boundary();
         player_1_ = new Paddle(player_1_position_x_, player_1_position_y_);
         player_2_ = new Paddle(player_2_position_x_, player_2_position_y_);
         ball_ = new Ball();
@@ -19,6 +21,7 @@ namespace N_Gameplay {
     }
 
     GameplayManager::~GameplayManager() {
+        delete boundary_;
         delete player_1_;
         delete player_2_;
         delete ball_;
@@ -31,6 +34,7 @@ namespace N_Gameplay {
     }
 
     void GameplayManager::render(sf::RenderWindow *p_window) {
+        boundary_->render(p_window);
         player_1_->render(p_window);
         player_2_->render(p_window);
         ball_->render(p_window);
