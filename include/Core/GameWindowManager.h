@@ -17,8 +17,8 @@ namespace N_Core {
         sf::RenderWindow* game_window = nullptr;
     public:
         void initialize();
-        sf::RenderWindow* getGameWindow() const ;
-        bool isGameRunning() const;
+        [[nodiscard]] sf::RenderWindow* getGameWindow() const ;
+        [[nodiscard]] bool isGameRunning() const;
         void clearGameWindow();
         void renderGameWindow();
         ~GameWindowManager();
