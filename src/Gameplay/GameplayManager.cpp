@@ -30,7 +30,7 @@ namespace N_Gameplay {
     void GameplayManager::update() {
         player_1_->update(eventManager_->isKeyPressed(sf::Keyboard::Key::W), eventManager_->isKeyPressed(sf::Keyboard::Key::S));
         player_2_->update(eventManager_->isKeyPressed(sf::Keyboard::Key::Up), eventManager_->isKeyPressed(sf::Keyboard::Key::Down));
-        ball_->update();
+        ball_->update(player_1_, player_2_);
     }
 
     void GameplayManager::render(sf::RenderWindow *p_window) {

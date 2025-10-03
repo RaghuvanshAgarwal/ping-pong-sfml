@@ -8,6 +8,7 @@
 
 
 namespace N_Gameplay {
+    class Paddle;
     class Ball {
         sf::Texture texture_;
         sf::Sprite* sprite_;
@@ -20,18 +21,25 @@ namespace N_Gameplay {
         const float position_x_ = 610.0f;
         const float position_y_ = 335.0f;
 
-        float speed_ = .5f;
+        float speed_ = 5.0f;
         sf::Vector2f velocity_ = sf::Vector2f(speed_,speed_);
 
         void loadTexture();
         void initializeVariables();
         void move();
+        void reset();
+        void handlePaddleCollision(const Paddle* p_p1, const Paddle* p_p2);
+        void handleBoundaryCollision();
+        void handleOutOfBoundsCollision();
+        void onCollision(const Paddle* p_p1, const Paddle* p_p2);
+
 
         public:
         Ball();
         ~Ball();
-        void update();
+        void update(const Paddle* p_p1, const Paddle* p_p2);
         void render(sf::RenderWindow* p_window);
+
     };
 } // N_Gameplay
 
