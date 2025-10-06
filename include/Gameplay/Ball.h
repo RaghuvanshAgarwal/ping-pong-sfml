@@ -4,6 +4,7 @@
 
 #ifndef CMAKESFMLPROJECT_BALL_H
 #define CMAKESFMLPROJECT_BALL_H
+#include "GameplayManager.h"
 #include "SFML/Graphics.hpp"
 
 
@@ -21,12 +22,12 @@ namespace N_Gameplay {
         const float position_x_ = 610.0f;
         const float position_y_ = 335.0f;
 
-        float speed_ = 5.0f;
+        float speed_ = 250.0f;
         sf::Vector2f velocity_ = sf::Vector2f(speed_,speed_);
 
         void loadTexture();
         void initializeVariables();
-        void move();
+        void move(N_Utility::TimeService* time_Service);
         void reset();
         void handlePaddleCollision(const Paddle* p_p1, const Paddle* p_p2);
         void handleBoundaryCollision();
@@ -37,7 +38,7 @@ namespace N_Gameplay {
         public:
         Ball();
         ~Ball();
-        void update(const Paddle* p_p1, const Paddle* p_p2);
+        void update(const Paddle* p_p1, const Paddle* p_p2, N_Utility::TimeService* time_Service);
         void render(sf::RenderWindow* p_window);
 
     };

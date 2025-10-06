@@ -10,7 +10,7 @@ namespace N_Utility {
     }
 
     float TimeService::calculateDeltaTime() const {
-        const long long count = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - previousTime).count();
+        const long long count = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - previousTime).count();
         return static_cast<float>(count) / 1000000.0f; // microseconds to seconds
     }
 

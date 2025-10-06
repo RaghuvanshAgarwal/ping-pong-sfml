@@ -4,17 +4,21 @@
 
 #ifndef CMAKESFMLPROJECT_GAMEPLAYMANAGER_H
 #define CMAKESFMLPROJECT_GAMEPLAYMANAGER_H
-#include "../Event/EventManager.h"
 #include "SFML/Graphics.hpp"
 
 class Boundary;
 
 namespace N_Gameplay {
     class Paddle;
+    class Ball;
 }
 
-namespace N_Gameplay {
-    class Ball;
+namespace N_Utility {
+    class TimeService;
+}
+
+namespace N_Event {
+    class EventManager;
 }
 
 namespace N_Gameplay {
@@ -30,6 +34,7 @@ namespace N_Gameplay {
         Paddle* player_2_{};
         Boundary* boundary_{};
         N_Event::EventManager* eventManager_{};
+        N_Utility::TimeService* timeService_{};
 
         void initialize();
     public:

@@ -6,6 +6,8 @@
 #include "../../include/Gameplay/Ball.h"
 #include "../../include/Gameplay/Paddle.h"
 #include "../../include/Gameplay/Boundary.h"
+#include "../../include/Event/EventManager.h"
+#include "../../include/Utility/TimeService.h"
 
 namespace N_Gameplay {
     void GameplayManager::initialize() {
@@ -17,6 +19,8 @@ namespace N_Gameplay {
 
     GameplayManager::GameplayManager(N_Event::EventManager* p_event_manager) {
         eventManager_ = p_event_manager;
+        timeService_ = new N_Utility::TimeService();
+        timeService_->initialize();
         initialize();
     }
 
@@ -28,9 +32,17 @@ namespace N_Gameplay {
     }
 
     void GameplayManager::update() {
-        player_1_->update(eventManager_->isKeyPressed(sf::Keyboard::Key::W), eventManager_->isKeyPressed(sf::Keyboard::Key::S));
-        player_2_->update(eventManager_->isKeyPressed(sf::Keyboard::Key::Up), eventManager_->isKeyPressed(sf::Keyboard::Key::Down));
-        ball_->update(player_1_, player_2_);
+        timeService_->update();
+        player_1_->update(
+            eventManager_->isKeyPressed(sf::Keyboard::Key::W),
+            eventManager_->isKeyPressed(sf::Keyboard::Key::S),
+            timeService_);
+        player_2_->update(
+            eventManager_->isKeyPressed(sf::Keyboard::Key::Up),
+            eventManager_->isKeyPressed(sf::Keyboard::Key::Down),
+            timeService_
+            );
+        ball_->update(player_1_, player_2_,timeService_);
     }
 
     void GameplayManager::render(sf::RenderWindow *p_window) {

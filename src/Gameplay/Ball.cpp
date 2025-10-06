@@ -5,6 +5,7 @@
 #include "../../include/Gameplay/Ball.h"
 
 #include "../../include/Gameplay/Paddle.h"
+#include "../../include/Utility/TimeService.h"
 
 namespace N_Gameplay {
     void Ball::loadTexture() {
@@ -19,8 +20,8 @@ namespace N_Gameplay {
         sprite_->setPosition({position_x_, position_y_});
     }
 
-    void Ball::move() {
-        sprite_->move(velocity_);
+    void Ball::move(N_Utility::TimeService* time_Service) {
+        sprite_->move(velocity_ * time_Service->getDeltaTime());
     }
 
     void Ball::reset() {
@@ -37,8 +38,8 @@ namespace N_Gameplay {
         delete sprite_;
     }
 
-    void Ball::update(const Paddle* p_p1, const Paddle* p_p2) {
-        move();
+    void Ball::update(const Paddle* p_p1, const Paddle* p_p2, N_Utility::TimeService* time_Service) {
+        move(time_Service);
         onCollision(p_p1, p_p2);
     }
 
