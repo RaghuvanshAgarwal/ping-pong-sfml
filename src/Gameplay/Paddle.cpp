@@ -18,8 +18,8 @@ namespace N_Gameplay {
         sprite_->setRotation(sf::Literals::operator ""_deg(90.0l));
         sprite_->setOrigin({static_cast<float>(texture_.getSize().x/2),static_cast<float>(texture_.getSize().y/2)});
         sprite_->setPosition({p_position_x, p_position_y});
-
-
+        position_x_ = p_position_x;
+        position_y_ = p_position_y;
     }
 
     Paddle::~Paddle() {
@@ -35,7 +35,7 @@ namespace N_Gameplay {
         else if (down_key_pressed && down < 700) {
             sprite_->move({0,paddle_speed_  * time_Service->getDeltaTime()});
         }
-        sprite_->setPosition({sprite_->getPosition().x, std::clamp(sprite_->getPosition().y,20.f,700.f)});
+        sprite_->setPosition({position_x_, std::clamp(sprite_->getPosition().y,20.f,700.f)});
 
     }
 
@@ -45,5 +45,9 @@ namespace N_Gameplay {
 
     const sf::Sprite * Paddle::getSprite() const {
         return sprite_;
+    }
+
+    void Paddle::reset() {
+        sprite_->setPosition({position_x_, position_y_});
     }
 } // N_Gameplay
