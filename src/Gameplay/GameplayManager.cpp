@@ -45,6 +45,7 @@ namespace N_Gameplay {
             timeService_
             );
         ball_->update(player_1_, player_2_,timeService_);
+        uiService_->update();
     }
 
     void GameplayManager::render(sf::RenderWindow *p_window) {

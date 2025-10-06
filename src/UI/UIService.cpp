@@ -23,6 +23,10 @@ namespace N_UI {
         right_score_text_->setPosition({right_score_position_x_, right_score_position_y_});
     }
 
+    std::string UIService::formatScore(int p_score) {
+        return (p_score < 10 ? "0" : "") + std::to_string(p_score);
+    }
+
     UIService::UIService() {
         loadFromFile();
         createLeftScoreText();
@@ -37,5 +41,18 @@ namespace N_UI {
     void UIService::render(sf::RenderWindow *window) {
         window->draw(*left_score_text_);
         window->draw(*right_score_text_);
+    }
+
+    void UIService::update() {
+        left_score_text_->setString(formatScore(player_1_score_));
+        right_score_text_->setString(formatScore(player_2_score_));
+    }
+
+    void UIService::incrementPlayer1Score() {
+        player_1_score_++;
+    }
+
+    void UIService::incrementPlayer2Score() {
+        player_2_score_++;
     }
 } // N_UI

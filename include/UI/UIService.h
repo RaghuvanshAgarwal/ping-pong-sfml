@@ -31,10 +31,15 @@ namespace N_UI {
         void createLeftScoreText();
         void createRightScoreText();
 
+        static std::string formatScore(int p_score);
+
         public:
         UIService();
         ~UIService();
         void render(sf::RenderWindow* window);
+        void update();
+        void incrementPlayer1Score();
+        void incrementPlayer2Score();
     };
 } // N_UI
 
