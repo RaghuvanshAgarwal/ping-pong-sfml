@@ -45,6 +45,26 @@ namespace N_Gameplay {
             timeService_
             );
         ball_->update(player_1_, player_2_,timeService_);
+        updateScore();
+        uiService_->update();
+    }
+
+    void GameplayManager::resetPlayer() {
+        player_1_->reset();
+        player_2_->reset();
+    }
+
+    void GameplayManager::updateScore() {
+        if (ball_->isLeftCollisionOccured()) {
+            ball_->updateLeftCollisionOccured(false);
+            uiService_->incrementPlayer2Score();
+            resetPlayer();
+        }
+        else if (ball_->isRightCollisionOccured()) {
+            ball_->updateRightCollisedOccured(false);
+            uiService_->incrementPlayer1Score();
+            resetPlayer();
+        }
     }
 
     void GameplayManager::render(sf::RenderWindow *p_window) {

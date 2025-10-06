@@ -53,6 +53,22 @@ namespace N_Gameplay {
         p_window->draw(*sprite_);
     }
 
+    bool Ball::isLeftCollisionOccured() const {
+        return is_left_collision_;
+    }
+
+    bool Ball::isRightCollisionOccured() const {
+        return is_right_collision_;
+    }
+
+    void Ball::updateLeftCollisionOccured(bool p_value) {
+        is_left_collision_ = p_value;
+    }
+
+    void Ball::updateRightCollisedOccured(bool p_value) {
+        is_right_collision_ = p_value;
+    }
+
     void Ball::handlePaddleCollision(const Paddle *p_p1, const Paddle *p_p2) {
         const sf::FloatRect player_1_bounds = p_p1->getSprite()->getGlobalBounds();
         const sf::FloatRect player_2_bounds = p_p2->getSprite()->getGlobalBounds();
@@ -78,9 +94,11 @@ namespace N_Gameplay {
         const sf::FloatRect bounds = sprite_->getGlobalBounds();
         if (bounds.position.x < 0) {
             reset();
+            updateLeftCollisionOccured(true);
         }
         else if ((bounds.size.x + bounds.position.x) > 1280) {
             reset();
+            updateRightCollisedOccured(true);
         }
     }
 } // N_Gameplay

@@ -46,6 +46,10 @@ namespace N_Gameplay {
         explicit GameplayManager(N_Event::EventManager* p_event_manager);
         ~GameplayManager();
         void update();
+
+        void resetPlayer();
+
+        void updateScore();
         void render(sf::RenderWindow* p_window);
     };
 } // N_Gameplay

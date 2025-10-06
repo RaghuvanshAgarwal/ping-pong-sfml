@@ -24,6 +24,8 @@ namespace N_Gameplay {
 
         float speed_ = 250.0f;
         sf::Vector2f velocity_ = sf::Vector2f(speed_,speed_);
+        bool is_left_collision_ = false;
+        bool is_right_collision_ = false;
 
         void loadTexture();
         void initializeVariables();
@@ -40,6 +42,10 @@ namespace N_Gameplay {
         ~Ball();
         void update(const Paddle* p_p1, const Paddle* p_p2, N_Utility::TimeService* time_Service);
         void render(sf::RenderWindow* p_window);
+        bool isLeftCollisionOccured() const;
+        bool isRightCollisionOccured() const;
+        void updateLeftCollisionOccured(bool p_value);
+        void updateRightCollisedOccured(bool p_value);
 
     };
 } // N_Gameplay

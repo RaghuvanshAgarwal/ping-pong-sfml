@@ -15,6 +15,8 @@ namespace N_Gameplay {
         const float paddle_width_ = 20.0f;
         const float paddle_height_ = 140.0f;
         const float paddle_speed_ = 360.0f;
+        float position_x_;
+        float position_y_;
 
         void movePaddle(bool up_key_pressed, bool down_key_pressed);
     public:
@@ -23,6 +25,8 @@ namespace N_Gameplay {
         void update(bool up_key_pressed, bool down_key_pressed, N_Utility::TimeService* time_Service);
         void render(sf::RenderWindow *p_window);
         const sf::Sprite* getSprite() const;
+
+        void reset();
     };
 } // N_Gameplay
 
