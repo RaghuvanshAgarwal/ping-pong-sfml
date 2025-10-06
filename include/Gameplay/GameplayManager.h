@@ -6,6 +6,10 @@
 #define CMAKESFMLPROJECT_GAMEPLAYMANAGER_H
 #include "SFML/Graphics.hpp"
 
+namespace N_UI {
+    class UIService;
+}
+
 class Boundary;
 
 namespace N_Gameplay {
@@ -35,6 +39,7 @@ namespace N_Gameplay {
         Boundary* boundary_{};
         N_Event::EventManager* eventManager_{};
         N_Utility::TimeService* timeService_{};
+        N_UI::UIService* uiService_{};
 
         void initialize();
     public:

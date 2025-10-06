@@ -8,6 +8,7 @@
 #include "../../include/Gameplay/Boundary.h"
 #include "../../include/Event/EventManager.h"
 #include "../../include/Utility/TimeService.h"
+#include "../../include/UI/UIService.h"
 
 namespace N_Gameplay {
     void GameplayManager::initialize() {
@@ -20,6 +21,7 @@ namespace N_Gameplay {
     GameplayManager::GameplayManager(N_Event::EventManager* p_event_manager) {
         eventManager_ = p_event_manager;
         timeService_ = new N_Utility::TimeService();
+        uiService_ = new N_UI::UIService();
         timeService_->initialize();
         initialize();
     }
@@ -50,5 +52,6 @@ namespace N_Gameplay {
         player_1_->render(p_window);
         player_2_->render(p_window);
         ball_->render(p_window);
+        uiService_->render(p_window);
     }
 } // N_Gameplay
