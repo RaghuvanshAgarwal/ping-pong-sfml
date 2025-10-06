@@ -4,7 +4,7 @@
 #include "include/Core/GameWindowManager.h"
 int main()
 {
-    N_Core::GameLoop* loop = new N_Core::GameLoop();
+    auto* loop = new N_Core::GameLoop();
     loop->initialize();
     while (loop->isGameRunning()) {
         loop->pollEvents();
