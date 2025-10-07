@@ -4,6 +4,8 @@
 
 #include "../../include/Core/GameLoop.h"
 
+#include "../../include/Sound/SoundManager.h"
+
 namespace N_Core {
     GameLoop::~GameLoop() {
         delete game_manager_;

@@ -14,7 +14,7 @@ namespace N_Gameplay {
         sf::Texture texture_;
         sf::Sprite* sprite_;
 
-        std::string texture_path_ = std::string(PROJECT_ROOT) + "/Assets/Textures/Ball.png";
+        std::string texture_path_ = std::string(PROJECT_ROOT) + "Assets/Textures/Ball.png";
 
         const float scale_x = 0.06f;
         const float scale_y = 0.06f;
