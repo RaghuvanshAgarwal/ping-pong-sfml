@@ -13,7 +13,7 @@ namespace N_UI {
         sf::Text* left_score_text_{};
         sf::Text* right_score_text_{};
 
-        std::string font_path_ = std::string(PROJECT_ROOT) + "/Assets/Fonts/Aloevera-OVoWO.ttf";
+        std::string font_path_ = std::string(PROJECT_ROOT) + "Assets/Fonts/Aloevera-OVoWO.ttf";
         int font_size_ = 40;
         sf::Color font_color_ = sf::Color::White;
         std::string initial_string_ = "00";

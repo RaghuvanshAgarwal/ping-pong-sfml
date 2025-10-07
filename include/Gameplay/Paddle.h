@@ -18,8 +18,13 @@ namespace N_Gameplay {
         float position_x_;
         float position_y_;
 
-        void movePaddle(bool up_key_pressed, bool down_key_pressed);
+        void loadFromFile();
+
+        void initializeSprite(float p_position_x, float p_position_y);
+        void movePaddle(bool up_key_pressed, bool down_key_pressed, N_Utility::TimeService* time_Service);
     public:
+
+
         Paddle(float p_position_x,float p_position_y);
         ~Paddle();
         void update(bool up_key_pressed, bool down_key_pressed, N_Utility::TimeService* time_Service);

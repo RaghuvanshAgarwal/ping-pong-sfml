@@ -7,6 +7,7 @@
 #include "../../include/Gameplay/Paddle.h"
 #include "../../include/Gameplay/Boundary.h"
 #include "../../include/Event/EventManager.h"
+#include "../../include/Sound/SoundManager.h"
 #include "../../include/Utility/TimeService.h"
 #include "../../include/UI/UIService.h"
 

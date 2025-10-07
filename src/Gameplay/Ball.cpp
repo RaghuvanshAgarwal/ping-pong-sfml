@@ -5,6 +5,7 @@
 #include "../../include/Gameplay/Ball.h"
 
 #include "../../include/Gameplay/Paddle.h"
+#include "../../include/Sound/SoundManager.h"
 #include "../../include/Utility/TimeService.h"
 
 namespace N_Gameplay {
@@ -76,10 +77,12 @@ namespace N_Gameplay {
 
         if (own_bounds.findIntersection(player_1_bounds) && velocity_.x < 0) {
             velocity_.x = -velocity_.x;
+            N_Sound::SoundManager::getInstance().playSoundEffect(N_Sound::SOUND_TYPE::Bounce);
         }
 
         if (own_bounds.findIntersection(player_2_bounds)&& velocity_.x > 0) {
             velocity_.x = -velocity_.x;
+            N_Sound::SoundManager::getInstance().playSoundEffect(N_Sound::SOUND_TYPE::Bounce);
         }
     }
 

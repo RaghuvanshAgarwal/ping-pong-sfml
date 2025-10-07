@@ -4,6 +4,8 @@
 
 #include "../../include/Core/GameLoop.h"
 
+#include "../../include/Sound/SoundManager.h"
+
 namespace N_Core {
     GameLoop::~GameLoop() {
         delete game_manager_;
@@ -12,6 +14,7 @@ namespace N_Core {
     }
 
     void GameLoop::initialize() {
+        N_Sound::SoundManager::getInstance().playBackgroundMusic();
         window_manager_ = new GameWindowManager();
         event_manager_ = new N_Event::EventManager();
         game_manager_ = new N_Gameplay::GameplayManager(event_manager_);

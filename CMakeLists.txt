@@ -34,13 +34,15 @@ add_executable(main main.cpp
         include/Utility/TimeService.h
         src/UI/UIService.cpp
         include/UI/UIService.h
+        src/Sound/SoundManager.cpp
+        include/Sound/SoundManager.h
 )
 target_compile_features(main PRIVATE cxx_std_17)
-target_link_libraries(main PRIVATE SFML::Graphics)
+target_link_libraries(main PRIVATE SFML::Graphics SFML::Audio)
 set_target_properties(main PROPERTIES
         VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
 )
 
 target_compile_definitions(main PRIVATE
-        PROJECT_ROOT="${CMAKE_SOURCE_DIR}"
+        PROJECT_ROOT="${CMAKE_SOURCE_DIR}/"
 )
